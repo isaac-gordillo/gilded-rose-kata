@@ -3,7 +3,7 @@ mocha.setup('bdd');
 
 (async function () {
   await import('./gilded-rose.spec');
-  await import('./item.spec');
+  await import('./items/item.spec');
 
   mocha.run();
 })();

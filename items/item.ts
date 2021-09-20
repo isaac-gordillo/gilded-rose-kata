@@ -27,7 +27,9 @@ export abstract class Item {
 }
 
 export class SellIn {
-  private value;
+  public static readonly INFINITE_VALUE = 999999;
+
+  private value: number;
 
   constructor(value: number) {
     this.value = value;
@@ -46,7 +48,7 @@ export class Quality {
   public static readonly MAX_VALUE = 50;
   public static readonly MIN_VALUE = 0;
 
-  private value;
+  private value: number;
 
   constructor(value: number) {
     this.value = this.getValidValue(value);

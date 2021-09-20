@@ -5,6 +5,7 @@ import { BackStagePassItem } from './items/back-stage-pass-item';
 import { ConjuredItem } from './items/conjured-item';
 import { Quality, SellIn } from './items/item';
 import { StandardItem } from './items/standard-item';
+import { SulfurasItem } from './items/sulfuras-item';
 
 describe('GildedRose', () => {
   let gildedRose: GildedRose;
@@ -214,7 +215,22 @@ describe('GildedRose', () => {
       });
     });
     describe('and is a SufurasItem', () => {
-      const sulfurasItem = '';
+      it('should not modify any after being updated', () => {
+        const sulfurasItem = new SulfurasItem();
+
+        gildedRose = new GildedRose([sulfurasItem]);
+
+        gildedRose.updateQuality();
+
+        const updatedSulfurasItem = gildedRose.getItems()[0];
+        expect(updatedSulfurasItem.getSellInValue()).to.be.equal(
+          SellIn.INFINITE_VALUE
+        );
+
+        expect(updatedSulfurasItem.getQualityValue()).to.be.equal(
+          Quality.MAX_VALUE
+        );
+      });
     });
   });
 

@@ -1,3 +1,5 @@
+import { Item } from './items/item';
+
 export class GildedRose {
   private items: Array<Item>;
 
